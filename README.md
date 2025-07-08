@@ -32,6 +32,51 @@ Here’s how I went about it:
 4. **Training & Validation** – split the dataset to evaluate performance fairly.
 5. **Evaluation** – used metrics like accuracy to judge how well the model predicts.
 
+## Steps Followed in This Project
+
+Below is a high-level summary of what I did inside the notebook:
+
+1. **Imported Required Libraries**  
+   Brought in all necessary libraries like pandas, numpy, seaborn, sklearn, xgboost, and imblearn.
+
+2. **Loaded the Dataset**  
+   Read the dataset from CSV and displayed the first few rows for inspection.
+
+3. **Initial Data Analysis**  
+   - Checked shape, data types, and missing/null values.
+   - Explored the distribution of classes (autistic vs non-autistic).
+
+4. **Data Cleaning**  
+   - Replaced "yes"/"no" with 1/0, and "?" or "others" with "Others".
+   - Dropped irrelevant columns like `ID`, `age_desc`, etc.
+   - Filtered out extreme outliers (e.g., result < -5).
+
+5. **Feature Engineering**  
+   - Created a new column `sum_score` which is the total of A1 to A10 scores.
+   - Created another column `ind` combining `austim`, `used_app_before`, and `jaundice`.
+
+6. **Exploratory Data Analysis (EDA)**  
+   - Used countplots and pie charts to visualize distributions and class balance.
+   - Used distribution plots and box plots to understand float features and detect outliers.
+
+7. **Feature Transformation**  
+   - Applied log transformation on `age` to reduce skew.
+   - Label encoded the categorical (`object`) columns.
+
+8. **Train-Test Split**  
+   - Split the data into training and validation sets (80-20 split).
+   - Addressed class imbalance using `RandomOverSampler`.
+
+9. **Model Training**  
+   - Trained multiple models: Logistic Regression, Support Vector Machine (SVM), and XGBoost.
+   - Evaluated their performance using accuracy score and classification reports.
+
+10. **Results and Conclusion**  
+    - Best model achieved an accuracy between **80%–85%**.
+    - Concluded that ML can assist in early autism detection, but further validation is needed.
+
+
+
 ## Results
 
 The models performed well, with accuracy scores ranging between **80–85%**. That’s promising for something like this — it shows that machine learning can pick up on meaningful patterns when it comes to early signs of Autism.
